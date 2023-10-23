@@ -12,21 +12,31 @@ def pick_number(start, end):
 
 
 number = pick_number(1, 100)
-print(
-    number
-)  # This will show the number, if you want it to be a surprise, remove this line
+print(number)  # This will show the number to test, remove this line when finished.
 
 while True:
-  guess = int(input("Guess a number from 1 to 100: "))
+  
+  user_input = input("Guess a number from 1 to 100: ")
 
-  if guess == number:
-    print("Correct")
-    break
-  elif guess > number:
-    print("Incorrect! The number is smaller, please guess again: ")
-
-  elif guess < number:
-    print("Incorrect! The number is bigger, please guess again: ")
-
-  else:
-    print("That number is invalid! Try again:")
+  try:
+   
+    guess=int(user_input)
+    
+    if guess == number:
+      print("Correct!")
+      break
+    
+    elif 1 <= guess <= 100:
+      
+      if guess > number: 
+        print("Incorrect! The number is smaller, please guess again!")
+  
+      else: #This cover when user input smaller number
+        print("Incorrect! The number is bigger, please guess again!")
+        
+    else:
+      print("That number is out of the range of 1-100. Please stay within the range!")
+  
+  except ValueError:
+    print("That is an invalid input, please enter an integer from 1-100!" )
+  

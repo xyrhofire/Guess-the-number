@@ -14,6 +14,7 @@ def pick_number(start, end):
 number = pick_number(1, 100)
 print(number)  # This will show the number to test, remove this line when finished.
 
+max_attempt = 5
 tries = 0 #Initializing tracking number of tries(counter tool)
 
 while True:
@@ -40,6 +41,10 @@ while True:
         
     else:
       print("That number is out of the range of 1-100. Please stay within the range!")
+
+    if tries == max_attempt:
+      print(f"GAME OVER! You've reached the maximum of {max_attempt} attemps. The number was {number}.")
+      break
   
   except ValueError:
     print("That is an invalid input, please enter an integer from 1-100!" )

@@ -14,7 +14,11 @@ def pick_number(start, end):
 number = pick_number(1, 100)
 print(number)  # This will show the number to test, remove this line when finished.
 
+tries = 0 #Initializing tracking number of tries(counter tool)
+
 while True:
+
+  tries += 1
   
   user_input = input("Guess a number from 1 to 100: ")
 
@@ -23,7 +27,7 @@ while True:
     guess=int(user_input)
     
     if guess == number:
-      print("Correct!")
+      print(f"Correct! you guess it in {tries} tries.")
       break
     
     elif 1 <= guess <= 100:
